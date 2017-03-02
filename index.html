@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>首页</title>
+    <style>
+    #target {
+      padding: 20px;
+      height: 300px;
+      border: 5px dashed #c0c0c0;
+      color: #e0e0e0;
+      font-size: 40px;
+      /*line-height: 260px;*/
+      text-align: center;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+    
+    #target.actived {
+      border-color: #888;
+      color: #eaeaea;
+      box-shadow: 0 0 80px #e0e0e0 inset;
+    }
+    section{
+        padding-top:50px;
+        width:320px;
+        height:200px;
+        margin:auto;
+    }
+    section .delet{
+      width:80px;
+      height:150px;
+      float:left;
+      background:#999;
+      font-size:24px;
+      color:white;
+      writing-mode: tb-rl;
+      padding:20px;
+    }
+    section ul{
+      margin-left:50px;
+    }
+    section ul li{
+      position:absolute;
+      margin-bottom:5px;
+      height:50px;
+      background:#f6f6f6;
+      border:1px dashed #999;
+      list-style-type:none;
+      padding:10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<section>
+    <div class="delet">垃圾箱</div>
+    <ul>
+      <li id="id1" data-id="id1" draggable="true">推动列表1</li>
+      <li id="id2" data-id="id2" draggable="true">推动列表2</li>
+      <li id="id3" data-id="id3" draggable="true">推动列表3</li>
+    </ul>
+  </section>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</body>
+</html>
