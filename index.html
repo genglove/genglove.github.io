@@ -69,7 +69,33 @@
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
-$("section ul li").on("drag",function(e){
+(function() {
+
+  // 先为元素注册事件 dragenter leave over    dragenter 进入时  dragleave 放手时 dragover 结束是
+  // 框元素drop 参数e里的对象 dataTransfer.getData("text/uri-list") 
+
+    $('section ul li').on('touchmove',function(e){
+
+    console.log(e.originalEvent);
+    //console.log(e.originalEvent.target);
+    /*e.preventDefault();
+    var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+    var elm = $(this).offset();
+    var x = touch.pageX - elm.left/2;
+    var y = touch.pageY - elm.top/2;
+    $(this).css('left', x+'px');
+    $(this).css('top', y+'px');*/
+    //console.log(touch.pageY+' '+touch.pageX);  
+    });
+
+    $().on('touchstart',function(e){
+      
+    });
+    $().on('touchend',function(e){
+      
+    });
+
+  $("section ul li").on("drag",function(e){
 
   });
 
@@ -96,6 +122,9 @@ $("section ul li").on("drag",function(e){
     //e.originalEvent.target.appendChild($("#"+data)[0]);
     $("#"+data).remove();
   });
+
+
+})();
     
 </script>
 </body>
