@@ -68,5 +68,35 @@
   </section>
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$("section ul li").on("drag",function(e){
+
+  });
+
+  var This;
+
+  $("section ul li").on("dragstart",function(e){
+    
+    //e.originalEvent.dataTransfer.setData('Text',e.originalEvent.target.id);
+    This = $(this).data('id');
+
+  });
+
+
+  $("section .delet").on("dragover",function(e){
+    e.preventDefault();
+  });
+
+  $("section .delet").on('drop',function(e){
+
+    e.preventDefault();
+    var data=e.originalEvent.dataTransfer.getData("Text");
+    //e.originalEvent.target.appendChild(document.getElementById(data));
+    //console.log(typeof ('#'+ data));
+    //e.originalEvent.target.appendChild($("#"+data)[0]);
+    $("#"+data).remove();
+  });
+    
+</script>
 </body>
 </html>
