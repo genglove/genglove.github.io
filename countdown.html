@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>倒计时5天</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="time">
+		倒计时：
+		<span class="year" style="display: none;">年</span>
+		<span class="month"  style="display: none;">月</span>
+		<span class="date"></span>日
+		<span class="hours"></span>时
+		<span class="minute"></span>分
+		<span class="second"></span>秒
+	</div>
+	<input type="checkbox" name="word" value="1">
+	<input type="checkbox" name="word" value="2">
+	<input type="checkbox" name="word" value="3">
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+	/**
+	 * [countDown description] 倒计时
+	 * @param  结束日期字符串
+	 */
+	function countDown(sTime){
+		var start = new Date();
+		var end = new Date(sTime);
+		var countdown = (end.getTime()-start.getTime())/1000;
+		var dates = parseInt(countdown/(60*60*24));
+		var hours = parseInt(countdown/(60*60)%24);
+		var minutes = parseInt((countdown/60)%60);
+		var seconds = parseInt(countdown%60);
+		$(".date").text(dates);
+		$(".hours").text(hours);
+		$(".minute").text(minutes);
+		$(".second").text(seconds);
+	}
+	setInterval(function(){
+		countDown('2017,6,24');
+	},1000);
+
+
+	/**
+	 * [PresetTime description]  预设时间启动
+	 * @param 启动日期时间
+	 */
+	function PresetTime(sTime){
+		var activateTime = new Date(sTime).getTime()/1000;
+		var date = new Date().getTime()/1000;
+		console.log(1);
+		if(date >= activateTime){	
+			$(".year").show();
+			$(".month").show();
+			clearInterval(timer);
+		}
+	}
+	var timer = setInterval(function(){
+			PresetTime("2017,6,20 00:08:00");
+		},1000);
+	
+
+	
+</script>
+</html>
+
