@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>618-风湿骨痛</title>
+	<meta name="author" content="360lj Pharmacies">
+	<meta name="Copyright" content="360lj.com">
+	<meta name="Keywords" content="168电商节、618大促、618热销产品、618热销榜">
+	<meta name="Description" content="亮健好药,做中国最大网上药店,经国家药监局认证的合法网上药店和正规药房网,买药省30%,100%正品.提供专业、优质和便捷的网上购药服务,执业医师为您提供24小时健康咨询!网上药店哪个好?首选亮健好药！">
+
+	<link rel="shortcut icon" href="http://image.360lj.com/images/icon.ico">
+	
+	<!-- [if lt IE9]>  -->
+	<script> 
+	   (function() {
+	     if (! 
+	     /*@cc_on!@*/
+	     0) return;
+	     var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+	     var i= e.length;
+	     while (i--){
+	         document.createElement(e[i])
+	     } 
+	})() 
+	</script>
+	<!-- <![endif] -->
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "微软雅黑";
+	}
+	.banner{
+		height: 1000px;
+		background: #ccc;
+	}
+	.part{
+		height: 1000px;
+		color: #333;
+		position: relative;
+	}
+	.part h1{
+		text-align: center;
+		position: relative;
+		font-weight: 700;
+		font-size: 40px;
+		background: red;
+	}
+	.floor{
+		height: 500px;
+		background: green;
+	}
+	.nav-side{
+		position: fixed;
+		left: 10px;
+		top: 50%;
+		width: 150px;
+		height: 300px;
+		background: yellow;
+	}
+	.nav-side span{
+		display: block;
+		height: 30px;
+		width: 100%;
+		line-height: 30px;
+		border-bottom: 1px solid #ccc;
+		text-align: center;
+
+	}
+	.nav-side span.action{
+		background: red;
+	}
+	</style>
+</head>
+<body>
+	<div class="banner"></div>
+	<div class="part"><h1>111</h1></div>
+	<div class="part"><h1>222</h1></div>
+	<div class="part"><h1>333</h1></div>
+	<div class="part"><h1>444</h1></div>
+	<div class="part"><h1>555</h1></div>
+	<div class="part"><h1>666</h1></div>
+	<div class="floor"></div>
+
+	<div class="nav-side">
+		<span>111</span>
+		<span>222</span>
+		<span>333</span>
+		<span>444</span>
+		<span>555</span>
+		<span>666</span>
+	</div>
+</body>
+<script>
+	var navh = parseInt($(".nav-side").height()/2);
+	$(".nav-side").css("marginTop",-navh);
+	/*点击滚动*/
+	$(".nav-side span").click(function(event) {
+		var i = $(this).index();
+		var t = $(".part").eq(i).offset().top;
+		$("html,body").animate({
+			scrollTop: t},
+			1000
+		);
+	});
+
+	$(document).scroll(function(event) {
+		var len = $(".part").length-1;
+		var scroll =  $(this).scrollTop();
+		var top = parseInt($(".part").eq(0).offset().top)-100;
+		var floor = parseInt($(".part").eq(len).offset().top)+200;
+		
+
+		$(".part").each(function(ind,e){	
+			var t = $(this).offset().top;
+			if(scroll > t-50 && scroll < t+100){
+				console.log(ind);
+				$(".nav-side span").eq(ind).addClass('action').siblings("span").removeClass('action');
+			}
+		});
+		
+		if(scroll<top || scroll>floor  ){
+			
+			$(".nav-side").hide(400);
+		}else{
+			$(".nav-side").show(400);
+		}
+
+	});
+
+
+</script>
+</html>
